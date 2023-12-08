@@ -4,6 +4,9 @@ import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 //pages
 import {Login} from './pages/Login';
 import {Main} from './pages/Main';
+import {Info} from './pages/Info';
+//components
+import { Navbar } from './components/Navbar';
 
 function App() {
   const [token, setToken] = useState('');
@@ -20,15 +23,17 @@ function App() {
   }
 
   return (
-    <div className="App">
+    <div className="App grid grid-cols-[120px_1fr] p-5">
       <Router>
-        <Routes>
-          {!token ?
-            <Route path='/' element={<Login/>}/>
-            :
-            <Route path='/' element={<Main logout={logout} token={token} />}/>
-          }
-        </Routes>
+        <Navbar />
+          <Routes>
+            {!token ?
+              <Route path='/' element={<Login/>}/>
+              :
+              <Route path='/' element={<Main logout={logout} token={token} />}/>
+            }
+            <Route path='/info' element={<Info />}/>
+          </Routes>
       </Router>
     </div>
   );

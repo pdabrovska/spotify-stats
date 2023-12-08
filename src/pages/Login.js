@@ -22,10 +22,10 @@ export const Login = () => {
   }, []);
   
   return (
-    <div>
+    <div className='m-auto flex flex-col items-center'>
       <h1>SpotifyStats</h1>
-      <p>See your Spotify Wrapped whenever you want. See your favourite artists and songs at the moment right now! </p>
-      <button>
+      <p className='text-center'>See your Spotify Wrapped whenever you want. See your favourite artists and songs at the moment right now! </p>
+      <button className="bg-green-500 rounded-full py-3 px-5 text-white">
         <a href={`${auth_endpoint}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}&scope=${scope}`}>
           Login to Spotify
         </a>

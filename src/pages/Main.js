@@ -8,7 +8,7 @@ export const Main = ({logout, token}) => {
   const navigate = useNavigate();
 
   const [userName, setUserName] = useState([]);
-  const [userTopTrack, setUserTopTracks] = useState([]);
+  const [userTopTracks, setUserTopTracks] = useState([]);
 
   const goBack = () => {
     logout();
@@ -29,19 +29,19 @@ export const Main = ({logout, token}) => {
     
   };
 
-  const fetchTopTracks = async () => {
+  const fetchTopTracks = async (time_range, limit) => {
     try {
         const {data} = await axios.get("https://api.spotify.com/v1/me/top/tracks", {
         headers: {
           Authorization: `Bearer ${token}`
         },
         params: {
-          time_range: 'short_term',
-          limit: 5,
+          time_range: time_range,
+          limit: limit,
           offset: 0
         }
       })
-      console.log(data.items);
+      setUserTopTracks(data.items);
     } catch(error) {
       console.error("Error fetching top tracks:", error);
     }
@@ -50,7 +50,7 @@ export const Main = ({logout, token}) => {
 
   useEffect(() => {
     fetchUserName();
-    fetchTopTracks();
+    fetchTopTracks('short_term', 5);
   }, []);
 
   return (
@@ -60,6 +60,12 @@ export const Main = ({logout, token}) => {
       </button>
       <div>
         {userName}
+      </div>
+      <div>
+        {userTopTracks?.map((track, key) => <Track 
+          track={track} key={key}
+          />)}
+
       </div>
     </div>
   )
