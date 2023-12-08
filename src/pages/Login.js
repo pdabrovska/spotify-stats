@@ -5,6 +5,7 @@ export const Login = () => {
   const redirect_uri = 'http://localhost:3000';
   const auth_endpoint = 'https://accounts.spotify.com/authorize';
   const response_type ='token';
+  const scope = 'user-top-read';
 
 
   //saving token to local storage
@@ -25,7 +26,7 @@ export const Login = () => {
       <h1>SpotifyStats</h1>
       <p>See your Spotify Wrapped whenever you want. See your favourite artists and songs at the moment right now! </p>
       <button>
-        <a href={`${auth_endpoint}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}`}>
+        <a href={`${auth_endpoint}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}&scope=${scope}`}>
           Login to Spotify
         </a>
       </button>

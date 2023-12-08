@@ -26,7 +26,7 @@ function App() {
           {!token ?
             <Route path='/' element={<Login/>}/>
             :
-            <Route path='/' element={<Main logout={logout} />}/>
+            <Route path='/' element={<Main logout={logout} token={token} />}/>
           }
         </Routes>
       </Router>
