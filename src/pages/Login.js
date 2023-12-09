@@ -22,11 +22,13 @@ export const Login = () => {
   }, []);
   
   return (
-    <div className='m-auto flex flex-col items-center'>
-      <h1>SpotifyStats</h1>
+    <div className='m-auto flex flex-col items-center justify-center gap-y-5 text-lg min-h-[80vh] px-10'>
+      <h1 className='text-3xl font-bold'>SpotifyStats</h1>
       <p className='text-center'>See your Spotify Wrapped whenever you want. See your favourite artists and songs at the moment right now! </p>
-      <button className="bg-green-500 rounded-full py-3 px-5 text-white">
-        <a href={`${auth_endpoint}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}&scope=${scope}`}>
+      <button className="bg-green-500 rounded-full py-3 px-5 text-white mt-2">
+        <a href={`${auth_endpoint}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}&scope=${scope}`}
+        className='bg-green-500'
+        >
           Login to Spotify
         </a>
       </button>

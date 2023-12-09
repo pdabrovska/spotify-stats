@@ -23,7 +23,7 @@ function App() {
   }
 
   return (
-    <div className="App grid grid-cols-[120px_1fr] p-5">
+    <div className="App relative py-10 px-5 text-[#E8E8E8] min-h-screen">
       <Router>
         <Navbar />
           <Routes>

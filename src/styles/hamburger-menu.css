@@ -1,0 +1,38 @@
+.burger-menu{
+  cursor: pointer;
+}
+
+.burger-menu div{
+  display: block;
+	height: 4px;
+	width: 35px;
+	margin-bottom: 4px;
+	position: relative;
+	background: #d3d3d3;
+	border-radius: 50px;
+	z-index: 1;
+	transition: transform 0.25s ease-out, opacity 0.15s ease-out;
+}
+
+.burger-menu div:not(:last-child){
+  margin-bottom: 5px;
+}
+
+.burger-menu:hover div{
+  height: 4px;
+	width: 37px;
+}
+
+.close-menu #line1{
+  transform: translateY(6px) rotate(45deg);
+}
+.close-menu #line2{
+  opacity: 0;
+}
+.close-menu #line3{
+  transform: translateY(-12px) rotate(-45deg);
+}
+
+.container:hover .horizontal-line{
+  right: 10%;
+}
