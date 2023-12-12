@@ -17,7 +17,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "build-css": "npx tailwindcss-cli@latest build -i ./src/index.css -o ./public/styles.css"
   },
   "eslintConfig": {
     "extends": [
@@ -38,6 +39,8 @@
     ]
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.32",
     "tailwindcss": "^3.3.6"
   }
 }
