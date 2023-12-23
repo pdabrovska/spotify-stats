@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-export const FilterButton = ( {text, id, value, name, checked} ) => {
+export const FilterButton = ({id, value, name,checked, text, setProperty}) => {
 
   return (
     <div>
@@ -10,6 +10,7 @@ export const FilterButton = ( {text, id, value, name, checked} ) => {
         value={value}
         name={name}
         defaultChecked={checked}
+        onClick={()=>setProperty(value)}
       />
       <label htmlFor={id}>
         <div 

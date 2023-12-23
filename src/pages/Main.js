@@ -12,12 +12,21 @@ export const Main = ({logout, token}) => {
   const [userName, setUserName] = useState([]);
   const [userTopTracks, setUserTopTracks] = useState([]);
   const [userTopArtists, setUserTopArtists] = useState([]);
+  //values for fetching data from Spotify
+  const [time_range, setTime_range] = useState('short_term');
+  const [limit, setLimit] = useState(5);
 
   const goBack = () => {
     logout();
     navigate('/');
   }
 
+  // changes limit property in fetchTopTracks and fetchTopArtists
+  const changeLimit = (number) => {setLimit(number)};
+  // changes limit property in fetchTopTracks and fetchTopArtists
+  const changeTimeRange = (time) => {setTime_range(time)};
+
+  //fetch user Name from Spotify
   const fetchUserName = async () => {
     try {
         const {data} = await axios.get("https://api.spotify.com/v1/me", {
@@ -50,7 +59,7 @@ export const Main = ({logout, token}) => {
     }
     
   };
-//fix artists fetch
+
   const fetchTopArtists = async (time_range, limit) => {
     try {
         const {data} = await axios.get("https://api.spotify.com/v1/me/top/artists", {
@@ -70,11 +79,15 @@ export const Main = ({logout, token}) => {
     
   };
 
+  // fetching user name (once)
   useEffect(() => {
     fetchUserName();
-    fetchTopTracks('short_term', 5);
-    fetchTopArtists('short_term', 5)
   }, []);
+  //fetching top songs and artists
+  useEffect(() => {
+    fetchTopTracks(time_range, limit);
+    fetchTopArtists(time_range, limit)
+  }, [time_range, limit]);
 
   return (
     <div className='relative md:mx-[5%] sm:mx-[2px] flex flex-col items-center justify-center gap-y-5 md:text-lg min-h-[80vh] px-10 mt-[45px] sm:text-sm'>
@@ -88,16 +101,29 @@ export const Main = ({logout, token}) => {
       </div>
 {/*add filters the functions is not working*/}
       <div className='filters flex gap-2 flex-wrap'>
-        <FilterButton text={'Top 5'} id={'top5'} value={'top5'} name={'top'} checked={'checked'}/>
-        <FilterButton text={'Top 10'} id={'top10'} value={'top10'} name={'top'}/>
-        <FilterButton text={'Top 15'} id={'top15'} value={'top15'} name={'top'}/>
-        <FilterButton text={'Last 4 weeks'} id={'4weeks'} value={'4weeks'} name={'time'} checked={'checked'}/>
-        <FilterButton text={'Last 6 months'} id={'6months'} value={'6monts'} name={'time'}/>
-        <FilterButton text={'All time Favourite'} id={'longTime'} value={'longTime'} name={'time'}/>
+        <FilterButton text={'Top 5'} id={'top5'} value={5} name={'top'} checked={'checked'}
+          setProperty={changeLimit}
+        />
+        <FilterButton text={'Top 10'} id={'top10'} value={10} name={'top'} 
+          setProperty={changeLimit}
+        />
+        <FilterButton text={'Top 15'} id={'top15'} value={15} name={'top'}
+          setProperty={changeLimit}
+        />
+        <FilterButton text={'Last 4 weeks'} id={'4weeks'} value={'short_term'} name={'time'} checked={'checked'}
+          setProperty={changeTimeRange}
+        />
+        <FilterButton text={'Last 6 months'} id={'6months'} value={'medium_term'} name={'time'}
+          setProperty={changeTimeRange}
+        />
+        <FilterButton text={'All time Favourite'} id={'longTime'} value={'long_term'} name={'time'}
+          setProperty={changeTimeRange}
+        />
       </div>
       <div className='flex flex-col gap-7 sm:flex-col md:flex-row'>
         <div>
           <h1>Your Top Songs:</h1>
+          {/*Displays top songs*/}
           <div>
             {userTopTracks?.map((track, key) => (
               <Track 
@@ -110,6 +136,7 @@ export const Main = ({logout, token}) => {
         </div>
         <div>
           <h1>Your Top Artists:</h1>
+          {/*Displays top artists*/}
           <div>
             {userTopArtists?.map((artist, key) => (
                 <Artist 

@@ -17,6 +17,7 @@ function App() {
       setToken(window.localStorage.getItem('token'));
   }, []);
 
+  //logging out
   const logout = () => {
     window.localStorage.removeItem('token');
     setToken('');
