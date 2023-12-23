@@ -6,6 +6,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        'spotify-basic-green': 'rgb(56, 158, 56)',
+      }
     },
   },
   plugins: [],

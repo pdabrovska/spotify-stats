@@ -3,18 +3,8 @@
 @tailwind utilities;
 
 @import '/src/styles/hamburger-menu.css';
+@import '/src/styles/buttons.css';
 
 *{
   background-color: rgb(23, 23, 23);
-}
-
-.btn{
-  background-color: rgb(56, 158, 56);
-  padding: 8px 15px;
-  border-radius: 25px;
-  cursor: pointer;
-}
-
-.btn:hover{
-  background-color: rgb(23, 154, 23);
 }

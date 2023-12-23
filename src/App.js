@@ -27,7 +27,7 @@ function App() {
       <Router>
         <Navbar />
           <Routes>
-            {!token ?
+            {token === '' ?
               <Route path='/' element={<Login/>}/>
               :
               <Route path='/' element={<Main logout={logout} token={token} />}/>
