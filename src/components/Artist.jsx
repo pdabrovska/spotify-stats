@@ -30,8 +30,8 @@ export const Artist = ({artist, number, token}) => {
   
   useEffect(() => {
     fetchArtistPopularity();
-  });
-  console.log(artistPopularity)
+  }, []);
+  
   return (
     <div className='flex items-center min-h-[90px] border-solid border-[1px] border-gray-600 rounded-md my-4 p-[3px] shadow-[10px_10px_25px_-10px_rgba(110,110,110,0.2)] md:min-w-max bg-inherit'>
       <p
