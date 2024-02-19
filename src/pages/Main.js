@@ -139,7 +139,7 @@ export const Main = ({logout, token}) => {
           <div className='bg-inherit'>
             {userTopArtists?.map((artist, key) => (
                 <Artist 
-                artist={artist} key={key} number={key}
+                artist={artist} key={key} number={key} token={token}
                 />
                 
               ))}

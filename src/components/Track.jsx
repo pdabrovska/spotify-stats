@@ -10,7 +10,7 @@ export const Track = ({track, number, token}) => {
   const nr = parseInt(number, 10);
   const [trackPopularity, setTrackPopularity] = useState();
 
-  //fetch track popularity not working
+  //fetch track popularity
   const fetchTrackPopularity = async () => {
     try {
       const {data} = await axios.get(`https://api.spotify.com/v1/tracks/${track.id}`, {
