@@ -90,16 +90,15 @@ export const Main = ({logout, token}) => {
   }, [time_range, limit]);
 
   return (
-    <div className='relative md:mx-[5%] sm:mx-[2px] flex flex-col items-center justify-center gap-y-5 md:text-lg min-h-[80vh] px-10 mt-[45px] sm:text-sm'>
+    <div className='relative flex flex-col items-center justify-center gap-y-5 md:text-lg min-h-[80vh] px-[10px] sm:px-[5%] md:px-[5%] lg:px-10 mt-[45px] sm:text-sm'>
       <button onClick={goBack}
       className='btn mt-2 absolute top-[-60px] right-0 '
       >
         Logout
       </button>
-      <div>
-        Hi {userName}, this is your fresh Spotify Wrapped! All your favourite songs from the artists you listened to recently.
+      <div className='max-w-[70vw] text-center'>
+        Hey {userName}, ready to relive your musical journey? Dive into your personalized Spotify Wrapped—where your top tracks and favorite artists await! Explore the tunes that shaped your day, all neatly wrapped up just for you whenever you want.
       </div>
-{/*add filters the functions is not working*/}
       <div className='filters flex gap-2 flex-wrap'>
         <FilterButton text={'Top 5'} id={'top5'} value={5} name={'top'} checked={'checked'}
           setProperty={changeLimit}
@@ -116,28 +115,28 @@ export const Main = ({logout, token}) => {
         <FilterButton text={'Last 6 months'} id={'6months'} value={'medium_term'} name={'time'}
           setProperty={changeTimeRange}
         />
-        <FilterButton text={'All time Favourite'} id={'longTime'} value={'long_term'} name={'time'}
+        <FilterButton text={'All time Favourites'} id={'longTime'} value={'long_term'} name={'time'}
           setProperty={changeTimeRange}
         />
       </div>
-      <div className='flex flex-col gap-7 sm:flex-col md:flex-row'>
-        <div>
-          <h1>Your Top Songs:</h1>
+      <div className='flex flex-col gap-7 flex-col md:flex-row'>
+        <div className='bg-zinc-800 rounded-md py-5 px-7'>
+          <h1 className='bg-inherit font-semibold'>Your Top Songs:</h1>
           {/*Displays top songs*/}
-          <div>
+          <div className='bg-inherit'>
             {userTopTracks?.map((track, key) => (
               <Track 
-              track={track} key={key} number={key}
+              track={track} key={key} number={key} token={token}
               />
               
             ))}
 
           </div>
         </div>
-        <div>
-          <h1>Your Top Artists:</h1>
+        <div className='bg-zinc-800 rounded-md py-5 px-7'>
+          <h1 className='bg-inherit font-semibold'>Your Top Artists:</h1>
           {/*Displays top artists*/}
-          <div>
+          <div className='bg-inherit'>
             {userTopArtists?.map((artist, key) => (
                 <Artist 
                 artist={artist} key={key} number={key}
