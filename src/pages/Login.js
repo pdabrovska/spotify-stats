@@ -1,5 +1,5 @@
 import {React, useEffect} from 'react';
-import { Link } from 'react-router-dom';
+import { Link} from 'react-router-dom';
 //icons
 import {ArrowTopRightOnSquareIcon as LinkIcon} from '@heroicons/react/24/solid'
 
@@ -10,7 +10,6 @@ export const Login = () => {
   const response_type ='token';
   const scope = 'user-top-read';
   const show_dialog = 'true';
-
 
   //saving token to local storage
   useEffect(() => {
@@ -33,10 +32,10 @@ export const Login = () => {
       </p>
       <a href={`${auth_endpoint}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}&scope=${scope}&show_dialog=${show_dialog}`}
       className='btn'
-      >
-        Login to Spotify
+      > 
+          Login to Spotify
       </a>
-      <Link className='flex text-sm gap-1 mt-[-13px] underline text-violet-400'>
+      <Link to={'/info'} className='flex text-sm gap-1 mt-[-13px] underline text-violet-400'>
         Check 2023 music statistics
         <LinkIcon className='h-5 w-5'/>
       </Link>

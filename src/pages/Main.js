@@ -97,7 +97,7 @@ export const Main = ({logout, token}) => {
         Logout
       </button>
       <div className='max-w-[70vw] text-center'>
-        Hey {userName}, ready to relive your musical journey? Dive into your personalized Spotify Wrapped—where your top tracks and favorite artists await! Explore the tunes that shaped your day, all neatly wrapped up just for you whenever you want.
+        Hi {userName}, ready to relive your musical journey? Dive into your personalized Spotify Wrapped—where your top tracks and favorite artists await! Explore the tunes that shaped your day, all neatly wrapped up just for you whenever you want.
       </div>
       <div className='filters flex gap-2 flex-wrap'>
         <FilterButton text={'Top 5'} id={'top5'} value={5} name={'top'} checked={'checked'}

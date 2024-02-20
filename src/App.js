@@ -19,8 +19,8 @@ function App() {
 
   //logging out
   const logout = () => {
-    window.localStorage.removeItem('token');
     setToken('');
+    window.localStorage.setItem('token', '');
   }
 
   return (
@@ -28,7 +28,7 @@ function App() {
       <Router>
         <Navbar />
           <Routes>
-            {token === '' ?
+            {token ==='' ?
               <Route path='/' element={<Login/>}/>
               :
               <Route path='/' element={<Main logout={logout} token={token} />}/>
