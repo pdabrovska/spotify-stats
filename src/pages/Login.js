@@ -11,15 +11,15 @@ export const Login = () => {
   const scope = 'user-top-read';
   const show_dialog = 'true';
 
-  //saving token to local storage
+  //saving token to session storage
   useEffect(() => {
     const hash = window.location.hash;
-    let token = window.localStorage.getItem('token');
+    let token = window.sessionStorage.getItem('token');
 
     if(!token && hash){
       token = hash.substring(1).split("&").find(element => element.startsWith("access_token")).split("=")[1];
 
-      window.localStorage.setItem('token', token);
+      window.sessionStorage.setItem('token', token);
     }
 
   }, []);

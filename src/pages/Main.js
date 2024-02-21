@@ -156,7 +156,7 @@ export const Main = ({logout, token}) => {
         >
           <div className='flex-shrink-0 w-full rounded-md py-5 px-7
            mdLG:flex-shrink-1 mdLG:w-fit'>
-          <h1 className='bg-inherit font-semibold'>Your Top Songs:</h1>
+          <h1 className='bg-inherit font-semibold  animate-fadeUpDelay'>Your Top Songs:</h1>
           {/*Displays top songs*/}
           <div className='bg-inherit'>
             {userTopTracks?.map((track, key) => (
@@ -169,7 +169,7 @@ export const Main = ({logout, token}) => {
           </div>
           </div>
           <div className='flex-shrink-0 w-full rounded-md py-5 px-7 mdLG:flex-shrink-1 mdLG:w-fit'>
-            <h1 className='bg-inherit font-semibold'>Your Top Artists:</h1>
+            <h1 className='bg-inherit font-semibold animate-fadeUpDelay'>Your Top Artists:</h1>
             {/*Displays top artists*/}
             <div className='bg-inherit'>
               {userTopArtists?.map((artist, key) => (

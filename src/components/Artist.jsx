@@ -36,7 +36,7 @@ export const Artist = ({artist, number, token}) => {
   const toggle = () =>{setIsInfoVisible(!isInfoVisible)}
 
   return (
-    <div className='flex items-center justify-between min-h-[90px] border-solid border-[1px] border-gray-600 rounded-md my-4 p-[3px] shadow-[10px_10px_25px_-10px_rgba(110,110,110,0.2)] bg-inherit'>
+    <div className='flex items-center justify-between min-h-[90px] border-solid border-[1px] border-gray-600 rounded-md my-4 p-[3px] shadow-[10px_10px_25px_-10px_rgba(110,110,110,0.2)] bg-inherit animate-fadeUp'>
       <div
         className='bg-inherit flex'
       >

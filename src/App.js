@@ -12,15 +12,15 @@ function App() {
   const [token, setToken] = useState('');
   console.log(token)
 
-  //saving token to local storage
+  //saving token to session storage
   useEffect(() => {
-      setToken(window.localStorage.getItem('token'));
+      setToken(!window.sessionStorage.getItem('token') ? '': window.sessionStorage.getItem('token'));
   }, []);
 
   //logging out
   const logout = () => {
     setToken('');
-    window.localStorage.setItem('token', '');
+    window.sessionStorage.setItem('token', '');
   }
 
   return (
