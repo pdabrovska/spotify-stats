@@ -5,6 +5,8 @@ import axios from 'axios';
 import { Track } from '../components/Track';
 import { Artist } from '../components/Artist';
 import { FilterButton } from '../components/FilterButton';
+//icons
+import { ChevronLeftIcon, ChevronRightIcon, InformationCircleIcon } from '@heroicons/react/24/solid';
 
 export const Main = ({logout, token}) => {
   const navigate = useNavigate();
@@ -12,6 +14,7 @@ export const Main = ({logout, token}) => {
   const [userName, setUserName] = useState([]);
   const [userTopTracks, setUserTopTracks] = useState([]);
   const [userTopArtists, setUserTopArtists] = useState([]);
+  const [translateX, setTranslateX] = useState(0);
   //values for fetching data from Spotify
   const [time_range, setTime_range] = useState('short_term');
   const [limit, setLimit] = useState(5);
@@ -119,10 +122,87 @@ export const Main = ({logout, token}) => {
           setProperty={changeTimeRange}
         />
       </div>
-      <div className='flex flex-col gap-7 flex-col md:flex-row'>
-        <div className='bg-zinc-800 rounded-md py-5 px-7'>
+      {/*carousel navigation buttons*/}
+      <div className='flex items-center gap-2 mdLG:hidden'>
+          <button
+            onClick={()=>{setTranslateX(translateX != 0 ? 0 : 100)}}
+            className='bg-inherit'
+          >
+            <ChevronLeftIcon
+              className='w-6 h-7'
+            />
+          </button>
+          <div className={translateX === 0 ? `w-3 h-3 rounded-full bg-zinc-200` : `w-3 h-3 rounded-full bg-zinc-600`}></div>
+          <div className={translateX === 100 ? `w-3 h-3 rounded-full bg-zinc-200` : `w-3 h-3 rounded-full bg-zinc-600`}></div>
+          <button
+            onClick={()=>{setTranslateX(translateX != 100 ? 100 : 0)}}
+            className='bg-inherit'
+          >
+            <ChevronRightIcon
+              className='w-6 h-7'
+            />
+          </button>
+      </div>
+
+      <div 
+        className='w-[90%] smX:w-min mdLG:w-full m-auto overflow-hidden'
+        
+      >
+        <div
+          className='flex justif-center mdLG:justify-center mdLG:gap-4'
+          style={{
+            transform: `translateX(-${translateX}%)`
+          }}
+        >
+          <div className='flex-shrink-0 w-full bg-zinc-800 rounded-md py-5 px-7
+           mdLG:flex-shrink-1 mdLG:w-fit'>
           <h1 className='bg-inherit font-semibold'>Your Top Songs:</h1>
           {/*Displays top songs*/}
+          <div className='bg-inherit'>
+            {userTopTracks?.map((track, key) => (
+              <Track 
+              track={track} key={key} number={key} token={token}
+              />
+              
+            ))}
+
+          </div>
+          </div>
+          <div className='flex-shrink-0 w-full bg-zinc-800 rounded-md py-5 px-7 mdLG:flex-shrink-1 mdLG:w-fit'>
+            <h1 className='bg-inherit font-semibold'>Your Top Artists:</h1>
+            {/*Displays top artists*/}
+            <div className='bg-inherit'>
+              {userTopArtists?.map((artist, key) => (
+                  <Artist 
+                  artist={artist} key={key} number={key} token={token}
+                  />
+                  
+                ))}
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/*
+      <div className='flex flex-col gap-7 flex-col md:flex-row'>
+        <div className='flex lg:hidden'>
+          <button className='bg-inherit'>
+            <ChevronLeftIcon
+              className='w-5 h-5'
+            />
+          </button>
+          <div className='w-2 h-2 rounded-full bg-zinc-500'></div>
+          <div className='w-2 h-2 rounded-full bg-zinc-500'></div>
+          <button className='bg-inherit'>
+            <ChevronRightIcon
+              className='w-5 h-5'
+            />
+          </button>
+        </div>
+        <div className='bg-zinc-800 rounded-md py-5 px-7 '>
+          <h1 className='bg-inherit font-semibold'>Your Top Songs:</h1>
+          {/*Displays top songs}
           <div className='bg-inherit'>
             {userTopTracks?.map((track, key) => (
               <Track 
@@ -135,7 +215,7 @@ export const Main = ({logout, token}) => {
         </div>
         <div className='bg-zinc-800 rounded-md py-5 px-7'>
           <h1 className='bg-inherit font-semibold'>Your Top Artists:</h1>
-          {/*Displays top artists*/}
+          {/*Displays top artists*}
           <div className='bg-inherit'>
             {userTopArtists?.map((artist, key) => (
                 <Artist 
@@ -147,6 +227,8 @@ export const Main = ({logout, token}) => {
           </div>
         </div>
       </div>
+
+      */}
     </div>
   )
 }
