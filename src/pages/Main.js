@@ -183,52 +183,6 @@ export const Main = ({logout, token}) => {
           </div>
         </div>
       </div>
-
-      {/*
-      <div className='flex flex-col gap-7 flex-col md:flex-row'>
-        <div className='flex lg:hidden'>
-          <button className='bg-inherit'>
-            <ChevronLeftIcon
-              className='w-5 h-5'
-            />
-          </button>
-          <div className='w-2 h-2 rounded-full bg-zinc-500'></div>
-          <div className='w-2 h-2 rounded-full bg-zinc-500'></div>
-          <button className='bg-inherit'>
-            <ChevronRightIcon
-              className='w-5 h-5'
-            />
-          </button>
-        </div>
-        <div className='bg-zinc-800 rounded-md py-5 px-7 '>
-          <h1 className='bg-inherit font-semibold'>Your Top Songs:</h1>
-          {/*Displays top songs}
-          <div className='bg-inherit'>
-            {userTopTracks?.map((track, key) => (
-              <Track 
-              track={track} key={key} number={key} token={token}
-              />
-              
-            ))}
-
-          </div>
-        </div>
-        <div className='bg-zinc-800 rounded-md py-5 px-7'>
-          <h1 className='bg-inherit font-semibold'>Your Top Artists:</h1>
-          {/*Displays top artists*}
-          <div className='bg-inherit'>
-            {userTopArtists?.map((artist, key) => (
-                <Artist 
-                artist={artist} key={key} number={key} token={token}
-                />
-                
-              ))}
-
-          </div>
-        </div>
-      </div>
-
-      */}
     </div>
   )
 }

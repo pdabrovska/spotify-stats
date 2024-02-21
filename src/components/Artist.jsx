@@ -33,7 +33,7 @@ export const Artist = ({artist, number, token}) => {
   }, []);
 
   return (
-    <div className='flex items-center min-h-[90px] border-solid border-[1px] border-gray-600 rounded-md my-4 p-[3px] shadow-[10px_10px_25px_-10px_rgba(110,110,110,0.2)] bg-inherit'>
+    <div className='flex items-center border-solid border-[1px] border-gray-600 rounded-md my-4 shadow-[10px_10px_25px_-10px_rgba(110,110,110,0.2)] bg-inherit'>
       <p
         className='bg-inherit px-[8px] text-2xl font-semibold'
       >
@@ -52,13 +52,14 @@ export const Artist = ({artist, number, token}) => {
       >
         <p className='bg-inherit font-semibold mb-[4px]'>{artist.name}</p>
       </div>
-      <div className='popularity-rate bg-inherit'>
-        <button className='bg-inherit'>
+
+      <div className='popularity-rate bg-inherit ml-[5px] mr-[10px] flex flex-col items-end'>
+        <button className='bg-inherit mb-2 mr-[-6px] p-0 opacity-60'>
           <InformationCircleIcon 
-            className='w-5 h-5 text-spotify-basic-green bg-inherit'
+            className='w-5 h-5 text-spotify-basic-green bg-inherit m-0'
           />
         </button>
-        {<PopularityRate rate={artistPopularity}/>}
+        <PopularityRate rate={artistPopularity}/>
       </div>
     </div>
   )
