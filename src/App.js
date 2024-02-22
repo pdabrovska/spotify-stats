@@ -7,6 +7,8 @@ import {Main} from './pages/Main';
 import {Info} from './pages/Info';
 //components
 import { Navbar } from './components/Navbar';
+import { Footer } from './components/Footer';
+import AnimatedRoutes from './components/AnimatedRoutes';
 
 function App() {
   const [token, setToken] = useState('');
@@ -27,6 +29,8 @@ function App() {
     <div className="App relative py-10 px-5 text-[#E8E8E8] min-h-screen">
       <Router>
         <Navbar />
+        <AnimatedRoutes token={token} logout={logout}/>
+          {/*
           <Routes>
             {token ==='' ?
               <Route path='/' element={<Login/>}/>
@@ -35,6 +39,8 @@ function App() {
             }
             <Route path='/info' element={<Info />}/>
           </Routes>
+          */}
+        <Footer />
       </Router>
     </div>
   );

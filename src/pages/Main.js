@@ -6,7 +6,9 @@ import { Track } from '../components/Track';
 import { Artist } from '../components/Artist';
 import { FilterButton } from '../components/FilterButton';
 //icons
-import { ChevronLeftIcon, ChevronRightIcon, InformationCircleIcon } from '@heroicons/react/24/solid';
+import { ChevronLeftIcon, ChevronRightIcon} from '@heroicons/react/24/solid';
+//framer motion library
+import {motion} from 'framer-motion';
 
 export const Main = ({logout, token}) => {
   const navigate = useNavigate();
@@ -93,7 +95,13 @@ export const Main = ({logout, token}) => {
   }, [time_range, limit]);
 
   return (
-    <div className='relative flex flex-col items-center justify-center gap-y-5 md:text-lg min-h-[80vh] px-[10px] sm:px-[5%] md:px-[5%] lg:px-10 mt-[45px] sm:text-sm'>
+    <motion.div 
+      className='relative flex flex-col items-center justify-center gap-y-5 md:text-lg min-h-[80vh] px-[10px] sm:px-[5%] md:px-[5%] lg:px-10 mt-[45px] sm:text-sm'
+
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+    >
       <button onClick={goBack}
       className='btn mt-2 absolute top-[-60px] right-0 '
       >
@@ -183,6 +191,6 @@ export const Main = ({logout, token}) => {
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

@@ -2,6 +2,8 @@ import {React, useEffect} from 'react';
 import { Link} from 'react-router-dom';
 //icons
 import {ArrowTopRightOnSquareIcon as LinkIcon} from '@heroicons/react/24/solid'
+//framer motion library
+import {motion} from 'framer-motion';
 
 export const Login = () => {
   const client_id = '132a9595d7f0453eab534d3118ac4c6d';
@@ -25,7 +27,13 @@ export const Login = () => {
   }, []);
   
   return (
-    <div className='m-auto flex flex-col items-center justify-center gap-y-5 text-lg min-h-[80vh] px-10'>
+    <motion.div 
+      className='m-auto flex flex-col items-center justify-center gap-y-5 text-lg min-h-[80vh] px-10'
+
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+    >
       <h1 className='text-3xl font-bold'>SpotifyStats</h1>
       <p className='text-center max-w-[70vw]'>
         Welcome to SpotifyStats, your gateway to a personalized music journey through data insights. Explore your top songs and artists over 1 year, 6 months, and 4 weeks, tracing the evolution of your music taste from enduring favorites to recent discoveries. Beyond playlists, delve into detailed statistics and analyses of 2023 music stream worldwide through intuitive PowerBI tables.
@@ -39,6 +47,6 @@ export const Login = () => {
         Check 2023 music statistics
         <LinkIcon className='h-5 w-5'/>
       </Link>
-    </div>
+    </motion.div>
   )
 }
