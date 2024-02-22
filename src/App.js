@@ -1,10 +1,6 @@
 import './App.css';
 import {React, useEffect, useState} from 'react';
-import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-//pages
-import {Login} from './pages/Login';
-import {Main} from './pages/Main';
-import {Info} from './pages/Info';
+import {BrowserRouter as Router} from 'react-router-dom';
 //components
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
@@ -30,16 +26,6 @@ function App() {
       <Router>
         <Navbar />
         <AnimatedRoutes token={token} logout={logout}/>
-          {/*
-          <Routes>
-            {token ==='' ?
-              <Route path='/' element={<Login/>}/>
-              :
-              <Route path='/' element={<Main logout={logout} token={token} />}/>
-            }
-            <Route path='/info' element={<Info />}/>
-          </Routes>
-          */}
         <Footer />
       </Router>
     </div>
