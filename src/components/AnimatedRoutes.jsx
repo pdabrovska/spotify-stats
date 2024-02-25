@@ -3,7 +3,7 @@ import { Route, Routes, useLocation} from 'react-router-dom';
 //pages
 import {Login} from '../pages/Login';
 import {Main} from '../pages/Main';
-import {Info} from '../pages/Info';
+import {About} from '../pages/About';
 //framer motion library
 import {AnimatePresence} from 'framer-motion';
 
@@ -18,7 +18,7 @@ const AnimatedRoutes = ({token, logout}) => {
           :
           <Route path='/' element={<Main logout={logout} token={token} />}/>
         }
-        <Route path='/info' element={<Info />}/>
+        <Route path='/about' element={<About />}/>
       </Routes>
     </AnimatePresence>
   )

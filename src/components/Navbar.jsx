@@ -30,7 +30,7 @@ export const Navbar = () => {
         </Link>
         <Link
           className='bg-zinc-800/[.06]'
-          to={'/info'}
+          to={'/about'}
           onClick={closeMenu}
         >
           <div
@@ -38,7 +38,7 @@ export const Navbar = () => {
           >
             <p
               className='bg-zinc-800/[.0]'
-            >Info</p>
+            >About</p>
             <div className='horizontal-line absolute bottom-[17%] right-[90%] left-[10%] h-[2px] bg-zinc-300 transition-right duration-500 linear'></div>
           </div>
         </Link>
