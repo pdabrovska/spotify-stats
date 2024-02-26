@@ -5,6 +5,7 @@ import axios from 'axios';
 import { Track } from '../components/Track';
 import { Artist } from '../components/Artist';
 import { FilterButton } from '../components/FilterButton';
+import CardSkeleton from '../components/CardSkeleton';
 //icons
 import { ChevronLeftIcon, ChevronRightIcon} from '@heroicons/react/24/solid';
 //framer motion library
@@ -16,6 +17,7 @@ export const Main = ({logout, token}) => {
   const [userName, setUserName] = useState([]);
   const [userTopTracks, setUserTopTracks] = useState([]);
   const [userTopArtists, setUserTopArtists] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [translateX, setTranslateX] = useState(0);
   //values for fetching data from Spotify
   const [time_range, setTime_range] = useState('short_term');
@@ -91,7 +93,8 @@ export const Main = ({logout, token}) => {
   //fetching top songs and artists
   useEffect(() => {
     fetchTopTracks(time_range, limit);
-    fetchTopArtists(time_range, limit)
+    fetchTopArtists(time_range, limit);
+    setIsLoading(false)
   }, [time_range, limit]);
 
   return (
@@ -131,7 +134,7 @@ export const Main = ({logout, token}) => {
         />
       </div>
       {/*carousel navigation buttons*/}
-      <div className='flex items-center gap-2 mdLG:hidden'>
+      <div className='flex items-center gap-2 lg:hidden'>
           <button
             onClick={()=>{setTranslateX(translateX != 0 ? 0 : 100)}}
             className='bg-inherit'
@@ -153,20 +156,21 @@ export const Main = ({logout, token}) => {
       </div>
 
       <div 
-        className='w-[90%] smX:w-min mdLG:w-full m-auto overflow-hidden'
+        className='w-[90%] smX:w-min lg:w-full m-auto overflow-hidden mt-[-10px]'
         
       >
         <div
-          className='flex justif-center mdLG:justify-center mdLG:gap-4'
+          className='flex justif-center lg:justify-center lg:gap-4'
           style={{
             transform: `translateX(-${translateX}%)`
           }}
         >
           <div className='flex-shrink-0 w-full rounded-md py-5 px-7
-           mdLG:flex-shrink-1 mdLG:w-fit'>
+           lg:flex-shrink-1 lg:w-fit'>
           <h1 className='bg-inherit font-semibold  animate-fadeUpDelay'>Your Top Songs:</h1>
           {/*Displays top songs*/}
           <div className='bg-inherit'>
+            {isLoading && [...Array(5)].map((e,i) => <CardSkeleton key={i}/>)}
             {userTopTracks?.map((track, key) => (
               <Track 
               track={track} key={key} number={key} token={token}
@@ -180,6 +184,7 @@ export const Main = ({logout, token}) => {
             <h1 className='bg-inherit font-semibold animate-fadeUpDelay'>Your Top Artists:</h1>
             {/*Displays top artists*/}
             <div className='bg-inherit'>
+              {isLoading && [...Array(5)].map((e, i) => <CardSkeleton key={i}/>)}
               {userTopArtists?.map((artist, key) => (
                   <Artist 
                   artist={artist} key={key} number={key} token={token}
