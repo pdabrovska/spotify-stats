@@ -8,7 +8,7 @@ export const About = () => {
   const popularityRef = useRef();
   return (
     <motion.div
-      className='flex flex-col items-center py-10 gap-5 text-justify'
+      className='flex flex-col items-center py-10 mb-[58px] gap-5 text-justify'
       initial={{opacity: 0}}
       animate={{opacity: 1}}
       exit={{opacity: 0}}

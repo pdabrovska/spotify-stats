@@ -99,7 +99,7 @@ export const Main = ({logout, token}) => {
 
   return (
     <motion.div 
-      className='relative flex flex-col items-center justify-center gap-y-5 md:text-lg min-h-[80vh] px-[10px] sm:px-[5%] md:px-[5%] lg:px-10 mt-[45px] sm:text-sm'
+      className='relative flex flex-col items-center justify-center gap-y-5 md:text-lg min-h-[80vh] px-[10px] sm:px-[5%] md:px-[5%] lg:px-10 mt-[45px] sm:text-sm mb-[75px]'
 
       initial={{opacity: 0}}
       animate={{opacity: 1}}
@@ -136,7 +136,7 @@ export const Main = ({logout, token}) => {
       {/*carousel navigation buttons*/}
       <div className='flex items-center gap-2 lg:hidden'>
           <button
-            onClick={()=>{setTranslateX(translateX != 0 ? 0 : 100)}}
+            onClick={()=>{setTranslateX(translateX !== 0 ? 0 : 100)}}
             className='bg-inherit'
           >
             <ChevronLeftIcon
@@ -146,7 +146,7 @@ export const Main = ({logout, token}) => {
           <div className={translateX === 0 ? `w-3 h-3 rounded-full bg-zinc-200` : `w-3 h-3 rounded-full bg-zinc-600`}></div>
           <div className={translateX === 100 ? `w-3 h-3 rounded-full bg-zinc-200` : `w-3 h-3 rounded-full bg-zinc-600`}></div>
           <button
-            onClick={()=>{setTranslateX(translateX != 100 ? 100 : 0)}}
+            onClick={()=>{setTranslateX(translateX !== 100 ? 100 : 0)}}
             className='bg-inherit'
           >
             <ChevronRightIcon

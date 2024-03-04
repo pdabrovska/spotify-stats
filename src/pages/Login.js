@@ -43,6 +43,10 @@ export const Login = () => {
       > 
           Login to Spotify
       </a>
+      <Link to={'/about'} className='flex text-sm gap-1 mt-[-13px] underline text-violet-400'>
+        About your data safety
+        <LinkIcon className='h-5 w-5'/>
+      </Link>
       {/*
       <Link to={'/info'} className='flex text-sm gap-1 mt-[-13px] underline text-violet-400'>
         Check 2023 music statistics
