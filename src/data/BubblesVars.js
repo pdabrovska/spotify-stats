@@ -812,7 +812,3 @@ export const BubblesVars = [
       delay: '-2.7256361295573908s'
   }
 ];
-
-export default {
-  BubblesVars,
-}
