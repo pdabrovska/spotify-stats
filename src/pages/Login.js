@@ -7,7 +7,7 @@ import {motion} from 'framer-motion';
 
 export const Login = () => {
   const client_id = '132a9595d7f0453eab534d3118ac4c6d';
-  const redirect_uri = 'http://localhost:3000';
+  const redirect_uri = 'https://spotify-stats-7890.web.app/';
   const auth_endpoint = 'https://accounts.spotify.com/authorize';
   const response_type ='token';
   const scope = 'user-top-read';
@@ -43,6 +43,10 @@ export const Login = () => {
       > 
           Login to Spotify
       </a>
+      <Link to={'/about'} className='flex text-sm gap-1 mt-[-13px] underline text-violet-400'>
+        About your data safety
+        <LinkIcon className='h-5 w-5'/>
+      </Link>
       {/*
       <Link to={'/info'} className='flex text-sm gap-1 mt-[-13px] underline text-violet-400'>
         Check 2023 music statistics

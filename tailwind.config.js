@@ -15,7 +15,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        'spotify-basic-green': 'rgb(56, 158, 56)',
+        'spotify-basic-green': '#1DB954',
       },
       keyframes: {
         fadeUp: {
@@ -39,11 +39,35 @@ module.exports = {
             opacity: '1',
             transform: 'translateY(0px) scale(1)'
           }
+        },
+        bubbleSize: {
+          '0%': {
+            width: 'var(--size, 4rem)',
+            height: 'var(--size, 4rem)'
+          },
+          '75%': {
+            width: 'var(--size, 4rem)',
+            height: 'var(--size, 4rem)'
+          },
+          '100%': {
+            width: '0',
+            height: '0'
+          },
+        },
+        bubbleMove: {
+          '0%': {
+            bottom: '0'
+          },
+          '100%': {
+            bottom: 'var(--distance)'
+          }
         }
       },
       animation: {
         fadeUp: 'fadeUp 0.9s',
-        fadeUpDelay: 'fadeUpDelay 0.9s 0.2s'
+        fadeUpDelay: 'fadeUpDelay 0.9s 0.2s',
+        bubbleSize: 'bubbleSize var(--time, 4s) ease-in infinite var(--delay, 0s)',
+        bubbleMove: 'bubbleMove var(--time, 4s) ease-in infinite var(--delay, 0s);'
       }
     },
   },
