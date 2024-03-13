@@ -17,8 +17,8 @@ Access my site at https://spotify-stats24.web.app/
 
 ## Screenshots
 
-<img src="/images/screenshots/screen1.png">
-<img src="/images/Screenshots/screen2.png">
+<img src="/src/images/screenshots/screen1.png">
+<img src="/src/images/screenshots/screen2.png">
 
 ## Technologies and tools
 I used:
