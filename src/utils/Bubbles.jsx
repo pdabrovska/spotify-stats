@@ -5,7 +5,6 @@ import Blob, {blob_filter_id} from './Blob';
 import { BubblesVars } from '../data/BubblesVars';
 
 const Bubbles = () => {
-  const bubblesNum = 50;
 
   return (
     <div>

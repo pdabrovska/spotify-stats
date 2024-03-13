@@ -8,7 +8,6 @@ import AnimatedRoutes from './components/AnimatedRoutes';
 
 function App() {
   const [token, setToken] = useState('');
-  console.log(token)
 
   //saving token to session storage
   useEffect(() => {
