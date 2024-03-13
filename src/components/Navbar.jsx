@@ -20,21 +20,21 @@ export const Navbar = () => {
           onClick={closeMenu}
         >
           <div
-            className='container p-6 bg-inherit relative w-[180px] text-center'
+            className='container p-6 bg-transparent relative w-[180px] text-center'
           >
             <p
-              className='bg-inherit'
+              className='bg-transparent'
             >Main</p>
             <div className='horizontal-line absolute bottom-[17%] right-[90%] left-[10%] h-[2px] bg-zinc-300 transition-right duration-500 linear'></div>
           </div>
         </Link>
         <Link
-          className='bg-inherit'
+          className='bg-transparent'
           to={'/about'}
           onClick={closeMenu}
         >
           <div
-            className='container p-6 bg-inherit relative w-[180px] text-center'
+            className='container p-6 bg-transparent relative w-[180px] text-center'
           >
             <p
               className='bg-inheerit'
