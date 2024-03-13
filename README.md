@@ -31,4 +31,3 @@ I used:
     <li>Firebase</li>
     <li>GIT</li>
   </ul>
- html, css, Javascript, Visual Studio Code, Figma.
