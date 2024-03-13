@@ -156,7 +156,7 @@ export const Main = ({logout, token}) => {
       </div>
 
       <div 
-        className='w-[90%] smX:w-min lg:w-full m-auto overflow-hidden mt-[-10px]'
+        className='w-[95%] smX:w-min lg:w-full m-auto overflow-hidden mt-[-10px]'
         
       >
         <div
@@ -165,7 +165,7 @@ export const Main = ({logout, token}) => {
             transform: `translateX(-${translateX}%)`
           }}
         >
-          <div className='flex-shrink-0 w-full rounded-md py-5 px-7
+          <div className='flex-shrink-0 w-full rounded-md px-0 py-5 xs:px-7
            lg:flex-shrink-1 lg:w-fit'>
           <h1 className='bg-inherit font-semibold  animate-fadeUpDelay'>Your Top Songs:</h1>
           {/*Displays top songs*/}
@@ -180,7 +180,7 @@ export const Main = ({logout, token}) => {
 
           </div>
           </div>
-          <div className='flex-shrink-0 w-full rounded-md py-5 px-7 mdLG:flex-shrink-1 mdLG:w-fit'>
+          <div className='flex-shrink-0 w-full rounded-md px-0 py-5 xs:px-7 mdLG:flex-shrink-1 mdLG:w-fit'>
             <h1 className='bg-inherit font-semibold animate-fadeUpDelay'>Your Top Artists:</h1>
             {/*Displays top artists*/}
             <div className='bg-inherit'>

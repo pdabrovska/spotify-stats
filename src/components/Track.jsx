@@ -41,21 +41,21 @@ export const Track = ({track, number, token}) => {
         className='bg-inherit flex'
       >
         <p
-          className='px-[8px] text-2xl font-semibold bg-inherit my-auto'
+          className='px-[8px] text-xl sm:text-2xl font-semibold bg-inherit my-auto'
         >
           {nr + 1}
         </p>
         <img 
           src={window.innerWidth <= 650 ? track.album.images[2].url : track.album.images[1].url}
-          className='max-w-[100px] my-[5px] mx-[10px]'
+          className='max-w-[100px] my-[5px] mx-[10px] my-auto'
           alt='Song'
         />
         <div
           className='bg-inherit h-full flex flex-col justify-start mt-[5px]'
         >
-          <p className='bg-inherit font-semibold mb-[4px]'>{track.name}</p>
-          <p className='bg-inherit text-sm'>{track.album.name}</p>
-          <p className='bg-inherit text-sm'>{track.artists[0].name}</p>
+          <p className='bg-inherit text-sm sm:text-lg font-semibold mb-[4px]'>{track.name}</p>
+          <p className='bg-inherit text-[12px] sm:text-sm'>{track.album.name}</p>
+          <p className='bg-inherit text-[12px] sm:text-sm'>{track.artists[0].name}</p>
         </div>
       </div>
 
