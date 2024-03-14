@@ -14,7 +14,7 @@ const CardSkeleton = ({notEnoughData}) => {
         > 
         </div>
         <div className={window.innerWidth <= 650 ? 'image w-[64px] h-[64px] bg-zinc-700 my-auto mx-[10px]' : 'image w-[100px] h-[100px] bg-zinc-700 my-auto mx-[10px]' }>
-          {notEnoughData && <NoSymbolIcon className='w-[55px] h-[55px] my-auto mx-auto'/>}
+          {notEnoughData && <NoSymbolIcon className='w-[55px] h-[55px] my-auto bg-transparent'/>}
         </div>
         <div className='description flex flex-col gap-2 mt-[5px] text-[12px]'>
           <div 

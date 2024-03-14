@@ -64,6 +64,7 @@ export const Main = ({logout, token}) => {
       })
       setUserTopTracks(data.items);
       setUserTopTracksLength(userTopTracks.length);
+      console.log(userTopTracksLength)
     } catch(error) {
       console.error("Error fetching top tracks:", error);
     }
@@ -84,6 +85,7 @@ export const Main = ({logout, token}) => {
       })
       setUserTopArtists(data.items);
       setUserTopArtistsLength(userTopArtists.length);
+      console.log(userTopArtistsLength)
     } catch(error) {
       console.error("Error fetching top artists:", error);
     }
