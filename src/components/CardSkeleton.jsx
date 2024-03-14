@@ -1,4 +1,5 @@
 import React from 'react';
+import { NoSymbolIcon} from '@heroicons/react/24/outline';
 
 const CardSkeleton = ({notEnoughData}) => {
   return (
@@ -13,19 +14,23 @@ const CardSkeleton = ({notEnoughData}) => {
         > 
         </div>
         <div className={window.innerWidth <= 650 ? 'image w-[64px] h-[64px] bg-zinc-700 my-auto mx-[10px]' : 'image w-[100px] h-[100px] bg-zinc-700 my-auto mx-[10px]' }>
+          {notEnoughData && <NoSymbolIcon className='w-[55px] h-[55px] my-auto mx-auto'/>}
         </div>
         <div className='description flex flex-col gap-2 mt-[5px] text-[12px]'>
           <div 
             className='number w-[200px] h-4 bg-zinc-700'
-          > Not Enough Data
+          > 
+            {notEnoughData && <p>Insufficient data. Check other time slots</p>} 
           </div>
           <div 
             className='number w-[200px] h-3 bg-zinc-700'
-          > Not Enough Data
+          > 
+            {notEnoughData && <p>Insufficient data. Check other time slots</p>}
           </div>
           <div 
-            className='number w-[180px] h-3 bg-zinc-700'
-          > Not Enough Data
+            className={notEnoughData ? 'number bg-zinc-700' : 'number w-[200px] h-3 bg-zinc-700'}
+          >
+            {notEnoughData && <p>Insufficient data. Check other time slots</p>}
           </div>
         </div>
       </div>

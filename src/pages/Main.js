@@ -22,7 +22,7 @@ export const Main = ({logout, token}) => {
   const [isLoading, setIsLoading] = useState(true);
   const [translateX, setTranslateX] = useState(0);
   //values for fetching data from Spotify
-  const [time_range, setTime_range] = useState('short_term');
+  const [time_range, setTime_range] = useState('medium_term');
   const [limit, setLimit] = useState(5);
 
   const goBack = () => {
