@@ -16,7 +16,9 @@ export const Main = ({logout, token}) => {
 
   const [userName, setUserName] = useState([]);
   const [userTopTracks, setUserTopTracks] = useState([]);
+  const [userTopTracksLength, setUserTopTracksLength] = useState(1);
   const [userTopArtists, setUserTopArtists] = useState([]);
+  const [userTopArtistsLength, setUserTopArtistsLength] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [translateX, setTranslateX] = useState(0);
   //values for fetching data from Spotify
@@ -61,6 +63,7 @@ export const Main = ({logout, token}) => {
         }
       })
       setUserTopTracks(data.items);
+      setUserTopTracksLength(userTopTracks.length);
     } catch(error) {
       console.error("Error fetching top tracks:", error);
     }
@@ -79,7 +82,8 @@ export const Main = ({logout, token}) => {
           offset: 0
         }
       })
-      setUserTopArtists(data.items)
+      setUserTopArtists(data.items);
+      setUserTopArtistsLength(userTopArtists.length);
     } catch(error) {
       console.error("Error fetching top artists:", error);
     }
@@ -177,7 +181,7 @@ export const Main = ({logout, token}) => {
               />
               
             ))}
-
+            {userTopTracksLength === 0 && [...Array(5)].map((e, i) => <CardSkeleton key={i} notEnoughData={true}/>)}
           </div>
           </div>
           <div className='flex-shrink-0 w-full rounded-md px-0 py-5 xs:px-7 mdLG:flex-shrink-1 mdLG:w-fit'>
@@ -191,7 +195,7 @@ export const Main = ({logout, token}) => {
                   />
                   
                 ))}
-              {userTopArtists.length === 0 && [...Array(5)].map((e, i) => <CardSkeleton key={i} notEnoughData={true}/>)}
+              {userTopArtistsLength === 0 && [...Array(5)].map((e, i) => <CardSkeleton key={i} notEnoughData={true}/>)}
             </div>
           </div>
         </div>

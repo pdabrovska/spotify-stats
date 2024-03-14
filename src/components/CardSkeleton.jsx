@@ -14,7 +14,7 @@ const CardSkeleton = ({notEnoughData}) => {
         </div>
         <div className={window.innerWidth <= 650 ? 'image w-[64px] h-[64px] bg-zinc-700 my-auto mx-[10px]' : 'image w-[100px] h-[100px] bg-zinc-700 my-auto mx-[10px]' }>
         </div>
-        <div className='description flex flex-col gap-2 mt-[5px] text-md'>
+        <div className='description flex flex-col gap-2 mt-[5px] text-[12px]'>
           <div 
             className='number w-[200px] h-4 bg-zinc-700'
           > Not Enough Data
