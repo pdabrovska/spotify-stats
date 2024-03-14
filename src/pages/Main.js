@@ -177,7 +177,7 @@ export const Main = ({logout, token}) => {
           {/*Displays top songs*/}
           <div className='bg-inherit'>
             {isLoading && [...Array(5)].map((e,i) => <CardSkeleton key={i} notEnoughData={false}/>)}
-            {userTopTracksLength == 0 ? [...Array(limit)].map((e, i) => <CardSkeleton key={i} notEnoughData={true}/>) : userTopTracks?.map((track, key) => (
+            {userTopTracksLength === 0 ? [...Array(limit)].map((e, i) => <CardSkeleton key={i} notEnoughData={true}/>) : userTopTracks?.map((track, key) => (
               <Track 
               track={track} key={key} number={key} token={token}
               />
@@ -189,11 +189,17 @@ export const Main = ({logout, token}) => {
             {/*Displays top artists*/}
             <div className='bg-inherit'>
               {isLoading && [...Array(5)].map((e, i) => <CardSkeleton key={i} notEnoughData={false}/>)}
-              {userTopArtistsLength == 0 ? [...Array(limit)].map((e, i) => <CardSkeleton key={i} notEnoughData={true}/>) : userTopArtists?.map((artist, key) => (
+              {userTopArtistsLength === 0 ? () => {
+                [...Array(limit)].map((e, i) => <CardSkeleton key={i} notEnoughData={true}/>)
+              } : 
+              () => {
+                userTopArtists?.map((artist, key) => (
                   <Artist 
                   artist={artist} key={key} number={key} token={token}
                   />
-                ))}
+                ))
+              }
+             }
             </div>
           </div>
         </div>
