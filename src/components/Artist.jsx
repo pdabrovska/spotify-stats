@@ -48,7 +48,7 @@ export const Artist = ({artist, number, token}) => {
         <div className='bg-inherit max-h-[120px] flex justify-items-center'>
           <img 
             src={window.innerWidth <= 650 ? artist.images[2].url : artist.images[1].url}
-            className='max-h-[100px] my-[5px] mx-[10px]'
+            className='max-h-[100px] my-[5px] mx-[10px] my-auto'
             alt='Artist'
           />
         </div>
