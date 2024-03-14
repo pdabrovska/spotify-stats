@@ -123,10 +123,10 @@ export const Main = ({logout, token}) => {
         <FilterButton text={'Top 15'} id={'top15'} value={15} name={'top'}
           setProperty={changeLimit}
         />
-        <FilterButton text={'Last 4 weeks'} id={'4weeks'} value={'short_term'} name={'time'} checked={'checked'}
+        <FilterButton text={'Last 4 weeks'} id={'4weeks'} value={'short_term'} name={'time'}
           setProperty={changeTimeRange}
         />
-        <FilterButton text={'Last 6 months'} id={'6months'} value={'medium_term'} name={'time'}
+        <FilterButton text={'Last 6 months'} id={'6months'} value={'medium_term'} name={'time'} checked={'checked'}
           setProperty={changeTimeRange}
         />
         <FilterButton text={'All time Favourites'} id={'longTime'} value={'long_term'} name={'time'}
@@ -185,6 +185,7 @@ export const Main = ({logout, token}) => {
             {/*Displays top artists*/}
             <div className='bg-inherit'>
               {isLoading && [...Array(5)].map((e, i) => <CardSkeleton key={i}/>)}
+              {userTopArtists.length === 0 && [...Array(5)].map((e, i) => <CardSkeleton key={i}/>)}
               {userTopArtists?.map((artist, key) => (
                   <Artist 
                   artist={artist} key={key} number={key} token={token}
