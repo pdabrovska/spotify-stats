@@ -170,7 +170,7 @@ export const Main = ({logout, token}) => {
           <h1 className='bg-inherit font-semibold  animate-fadeUpDelay'>Your Top Songs:</h1>
           {/*Displays top songs*/}
           <div className='bg-inherit'>
-            {isLoading && [...Array(5)].map((e,i) => <CardSkeleton key={i}/>)}
+            {isLoading && [...Array(5)].map((e,i) => <CardSkeleton key={i} notEnoughData={false}/>)}
             {userTopTracks?.map((track, key) => (
               <Track 
               track={track} key={key} number={key} token={token}
@@ -184,15 +184,14 @@ export const Main = ({logout, token}) => {
             <h1 className='bg-inherit font-semibold animate-fadeUpDelay'>Your Top Artists:</h1>
             {/*Displays top artists*/}
             <div className='bg-inherit'>
-              {isLoading && [...Array(5)].map((e, i) => <CardSkeleton key={i}/>)}
-              {userTopArtists.length === 0 && [...Array(5)].map((e, i) => <CardSkeleton key={i}/>)}
+              {isLoading && [...Array(5)].map((e, i) => <CardSkeleton key={i} notEnoughData={false}/>)}
               {userTopArtists?.map((artist, key) => (
                   <Artist 
                   artist={artist} key={key} number={key} token={token}
                   />
                   
                 ))}
-
+              {userTopArtists.length === 0 && [...Array(5)].map((e, i) => <CardSkeleton key={i} notEnoughData={true}/>)}
             </div>
           </div>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const CardSkeleton = () => {
+const CardSkeleton = ({notEnoughData}) => {
   return (
     <div
       className='max-w-[70vw] flex justify-between border-solid border-[1px] border-gray-600 rounded-md my-4 p-[3px] shadow-[10px_10px_25px_-10px_rgba(110,110,110,0.2)] bg-inherit animate-fadeUp'
@@ -12,20 +12,20 @@ const CardSkeleton = () => {
           className='number w-4 h-9 bg-zinc-700 my-auto mx-[5px]'
         > 
         </div>
-        <div className={window.innerWidth <= 650 ? 'image w-[64px] h-[64px] bg-zinc-700 my-[5px] mx-[10px]' : 'image w-[100px] h-[100px] bg-zinc-700 my-[5px] mx-[10px]' }>
+        <div className={window.innerWidth <= 650 ? 'image w-[64px] h-[64px] bg-zinc-700 my-auto mx-[10px]' : 'image w-[100px] h-[100px] bg-zinc-700 my-auto mx-[10px]' }>
         </div>
-        <div className='description flex flex-col gap-2 mt-[5px]'>
+        <div className='description flex flex-col gap-2 mt-[5px] text-md'>
           <div 
             className='number w-[200px] h-4 bg-zinc-700'
-          > 
+          > Not Enough Data
           </div>
           <div 
             className='number w-[200px] h-3 bg-zinc-700'
-          > 
+          > Not Enough Data
           </div>
           <div 
             className='number w-[180px] h-3 bg-zinc-700'
-          > 
+          > Not Enough Data
           </div>
         </div>
       </div>
