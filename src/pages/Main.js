@@ -6,20 +6,21 @@ import { Track } from '../components/Track';
 import { Artist } from '../components/Artist';
 import { FilterButton } from '../components/FilterButton';
 import CardSkeleton from '../components/CardSkeleton';
+import GenerateShareImg from '../components/GenerateShareImg';
 //icons
 import { ChevronLeftIcon, ChevronRightIcon} from '@heroicons/react/24/solid';
 import { ShareIcon} from '@heroicons/react/24/outline';
 //framer motion library
 import {motion} from 'framer-motion';
+import ShareScreen from '../components/ShareScreen';
 
 export const Main = ({logout, token}) => {
   const navigate = useNavigate();
 
   const [userName, setUserName] = useState([]);
   const [userTopTracks, setUserTopTracks] = useState([]);
-  const [userTopTracksLength, setUserTopTracksLength] = useState(1);
+  const [topTracksShare, setTopTracksShare] = useState([]);
   const [userTopArtists, setUserTopArtists] = useState([]);
-  const [userTopArtistsLength, setUserTopArtistsLength] = useState(1);
   const [isLoading, setIsLoading] = useState(true);
   const [translateX, setTranslateX] = useState(0);
   //values for fetching data from Spotify
@@ -32,7 +33,7 @@ export const Main = ({logout, token}) => {
   }
 
   const share = () => {
-    
+    GenerateShareImg(topTracksShare);
   }
 
   // changes limit property in fetchTopTracks and fetchTopArtists
@@ -55,7 +56,7 @@ export const Main = ({logout, token}) => {
     
   };
 
-  const fetchTopTracks = async (time_range, limit) => {
+  const fetchTopTracks = async (time_range, limit, toShare) => {
     try {
         const {data} = await axios.get("https://api.spotify.com/v1/me/top/tracks", {
         headers: {
@@ -67,9 +68,7 @@ export const Main = ({logout, token}) => {
           offset: 0
         }
       })
-      setUserTopTracks(data.items);
-      setUserTopTracksLength(userTopTracks.length);
-      console.log(userTopTracksLength)
+      toShare ? setTopTracksShare(data.items) : setUserTopTracks(data.items);
     } catch(error) {
       console.error("Error fetching top tracks:", error);
     }
@@ -89,8 +88,6 @@ export const Main = ({logout, token}) => {
         }
       })
       setUserTopArtists(data.items);
-      setUserTopArtistsLength(userTopArtists.length);
-      console.log(userTopArtistsLength)
     } catch(error) {
       console.error("Error fetching top artists:", error);
     }
@@ -100,10 +97,11 @@ export const Main = ({logout, token}) => {
   // fetching user name (once)
   useEffect(() => {
     fetchUserName();
+    fetchTopTracks('short_term', 5, true);
   }, []);
   //fetching top songs and artists
   useEffect(() => {
-    fetchTopTracks(time_range, limit);
+    fetchTopTracks(time_range, limit, false);
     fetchTopArtists(time_range, limit);
     setIsLoading(false)
   }, [time_range, limit]);
@@ -131,6 +129,19 @@ export const Main = ({logout, token}) => {
           <p>Share</p>
         </button>
       </div>
+
+      <ShareScreen />
+
+      <div className='topTracks absolute z-[-1]'>
+        {
+          topTracksShare?.map((track, key) => (
+            <p key={key}>
+              {track.name}
+            </p>
+          ))
+        }
+      </div>
+
       <div className='max-w-[70vw] text-center'>
         Hi {userName}, ready to relive your musical journey? Dive into your personalized Spotify Wrapped—where your top tracks and favorite artists await! Explore the tunes that shaped your day, all neatly wrapped up just for you whenever you want.
       </div>
