@@ -16,7 +16,7 @@ module.exports = {
     },
     extend: {
       colors: {
-        'spotify-basic-green': '#1DB954',
+        'spotify-basic-green': '#07b042',
       },
       keyframes: {
         fadeUp: {

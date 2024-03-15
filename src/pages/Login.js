@@ -39,7 +39,7 @@ export const Login = () => {
         Welcome to SpotifyStats, your gateway to a personalized music journey through data insights. Explore your top songs and artists over 1 year, 6 months, and 4 weeks, tracing the evolution of your music taste from enduring favorites to recent discoveries. {/* Beyond playlists, delve into detailed statistics and analyses of 2023 music stream worldwide through intuitive PowerBI tables.*/}
       </p>
       <a href={`${auth_endpoint}?client_id=${client_id}&redirect_uri=${redirect_uri}&response_type=${response_type}&scope=${scope}&show_dialog=${show_dialog}`}
-      className='btn'
+      className='bg-spotify-basic-green rounded-full py-[8px] px-[13px] hover:bg-[#179a17]'
       > 
           Login to Spotify
       </a>

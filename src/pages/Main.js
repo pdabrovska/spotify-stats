@@ -8,6 +8,7 @@ import { FilterButton } from '../components/FilterButton';
 import CardSkeleton from '../components/CardSkeleton';
 //icons
 import { ChevronLeftIcon, ChevronRightIcon} from '@heroicons/react/24/solid';
+import { ShareIcon} from '@heroicons/react/24/outline';
 //framer motion library
 import {motion} from 'framer-motion';
 
@@ -28,6 +29,10 @@ export const Main = ({logout, token}) => {
   const goBack = () => {
     logout();
     navigate('/');
+  }
+
+  const share = () => {
+    
   }
 
   // changes limit property in fetchTopTracks and fetchTopArtists
@@ -111,11 +116,21 @@ export const Main = ({logout, token}) => {
       animate={{opacity: 1}}
       exit={{opacity: 0}}
     >
-      <button onClick={goBack}
-      className='btn mt-2 absolute top-[-60px] right-0 '
+      <div
+      className='absolute top-[-60px] right-0 flex flex-row-reverse gap-[8px] sm:gap-4'
       >
-        Logout
-      </button>
+        <button onClick={goBack}
+        className='mt-2 bg-spotify-basic-green rounded-full py-[8px] px-[13px] hover:bg-[#179a17]'
+        >
+          Logout
+        </button>
+        <button onClick={share}
+        className='mt-2 border-solid border-[3px] border-spotify-basic-green rounded-full py-[8px] px-[13px] flex items-center gap-2'
+        >
+          <ShareIcon className='w-[18px] h-[18px]'/>
+          <p>Share</p>
+        </button>
+      </div>
       <div className='max-w-[70vw] text-center'>
         Hi {userName}, ready to relive your musical journey? Dive into your personalized Spotify Wrapped—where your top tracks and favorite artists await! Explore the tunes that shaped your day, all neatly wrapped up just for you whenever you want.
       </div>
