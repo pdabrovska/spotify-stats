@@ -24,6 +24,7 @@ export const Main = ({logout, token}) => {
   const [userTopArtists, setUserTopArtists] = useState([]);
   const [topArtistsShare, setTopArtistsShare] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [isSharing, setIsSharing] = useState(false);
   const [translateX, setTranslateX] = useState(0);
   //values for fetching data from Spotify
   const [time_range, setTime_range] = useState('medium_term');
@@ -35,8 +36,11 @@ export const Main = ({logout, token}) => {
   }
 
   const share = () => {
+    setIsSharing(!isSharing);
     GenerateShareImg();
   }
+
+  const close = () => {setIsSharing(false)};
 
   // changes limit property in fetchTopTracks and fetchTopArtists
   const changeLimit = (number) => {setLimit(number)};
@@ -133,7 +137,7 @@ export const Main = ({logout, token}) => {
         </button>
       </div>
 
-      <ShareScreen />
+      {isSharing && <ShareScreen close={close}/>}
       <div className='absolute w-[600px] h-[920px] bg-[#171717] z-[-1]'></div>
       <TopTracksToShare tracks={topTracksShare} artists={topArtistsShare}/>
 

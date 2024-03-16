@@ -9,6 +9,7 @@ const GenerateShareImg = () => {
       img.src = imgData;
       img.width = 1080;
       img.height = 1920;
+      img.className = 'object-contain'
       document.querySelector('.imgToShare').appendChild(img);
     })
   }
