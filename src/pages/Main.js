@@ -13,6 +13,7 @@ import { ShareIcon} from '@heroicons/react/24/outline';
 //framer motion library
 import {motion} from 'framer-motion';
 import ShareScreen from '../components/ShareScreen';
+import TopTracksToShare from '../components/TopTracksToShare';
 
 export const Main = ({logout, token}) => {
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ export const Main = ({logout, token}) => {
   const [userTopTracks, setUserTopTracks] = useState([]);
   const [topTracksShare, setTopTracksShare] = useState([]);
   const [userTopArtists, setUserTopArtists] = useState([]);
+  const [topArtistsShare, setTopArtistsShare] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [translateX, setTranslateX] = useState(0);
   //values for fetching data from Spotify
@@ -33,7 +35,7 @@ export const Main = ({logout, token}) => {
   }
 
   const share = () => {
-    GenerateShareImg(topTracksShare);
+    GenerateShareImg();
   }
 
   // changes limit property in fetchTopTracks and fetchTopArtists
@@ -75,7 +77,7 @@ export const Main = ({logout, token}) => {
     
   };
 
-  const fetchTopArtists = async (time_range, limit) => {
+  const fetchTopArtists = async (time_range, limit, toShare) => {
     try {
         const {data} = await axios.get("https://api.spotify.com/v1/me/top/artists", {
         headers: {
@@ -87,7 +89,7 @@ export const Main = ({logout, token}) => {
           offset: 0
         }
       })
-      setUserTopArtists(data.items);
+      toShare ? setTopArtistsShare(data.items) : setUserTopArtists(data.items);
     } catch(error) {
       console.error("Error fetching top artists:", error);
     }
@@ -97,18 +99,19 @@ export const Main = ({logout, token}) => {
   // fetching user name (once)
   useEffect(() => {
     fetchUserName();
-    fetchTopTracks('short_term', 5, true);
+    fetchTopTracks('medium_term', 5, true);
+    fetchTopArtists('medium_term', 5, true);
   }, []);
   //fetching top songs and artists
   useEffect(() => {
     fetchTopTracks(time_range, limit, false);
-    fetchTopArtists(time_range, limit);
+    fetchTopArtists(time_range, limit, false);
     setIsLoading(false)
   }, [time_range, limit]);
 
   return (
     <motion.div 
-      className='relative flex flex-col items-center justify-center gap-y-5 md:text-lg min-h-[80vh] px-[10px] sm:px-[5%] md:px-[5%] lg:px-10 mt-[45px] sm:text-sm mb-[75px]'
+      className='relative flex flex-col items-center justify-center gap-y-5 md:text-lg min-h-[80vh] px-[10px] sm:px-[5%] md:px-[5%] lg:px-10 mt-[45px] sm:text-sm mb-[75px] bg-[#17171]'
 
       initial={{opacity: 0}}
       animate={{opacity: 1}}
@@ -131,16 +134,8 @@ export const Main = ({logout, token}) => {
       </div>
 
       <ShareScreen />
-
-      <div className='topTracks absolute z-[-1]'>
-        {
-          topTracksShare?.map((track, key) => (
-            <p key={key}>
-              {track.name}
-            </p>
-          ))
-        }
-      </div>
+      <div className='absolute w-[600px] h-[920px] bg-[#171717] z-[-1]'></div>
+      <TopTracksToShare tracks={topTracksShare} artists={topArtistsShare}/>
 
       <div className='max-w-[70vw] text-center'>
         Hi {userName}, ready to relive your musical journey? Dive into your personalized Spotify Wrapped—where your top tracks and favorite artists await! Explore the tunes that shaped your day, all neatly wrapped up just for you whenever you want.

@@ -22,7 +22,7 @@ function App() {
   }
 
   return (
-    <div className="App relative py-10 px-5 text-[#E8E8E8] min-h-screen">
+    <div className="App relative py-10 px-5 text-[#E8E8E8] min-h-screen overflow-hidden">
       <Router>
         <Navbar />
         <AnimatedRoutes token={token} logout={logout}/>

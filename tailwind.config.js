@@ -18,6 +18,9 @@ module.exports = {
       colors: {
         'spotify-basic-green': '#07b042',
       },
+      backgroundImage: {
+        'share' : "url('/public/images/shareBG.jpg')"
+      },
       keyframes: {
         fadeUp: {
           '0%': {

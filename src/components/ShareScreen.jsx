@@ -4,7 +4,9 @@ const ShareScreen = () => {
   return (
     <div
       className='shareScreen'
-    >ShareScreen</div>
+    >
+      <div className='imgToShare'></div>
+    </div>
   )
 }
 

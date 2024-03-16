@@ -58,6 +58,17 @@ export const About = () => {
           &bull; <strong>The popularity of the artist.</strong>  The value will be between 0 and 100, with 100 being the most popular. The artist's popularity is calculated from the popularity of all the artist's tracks. The result is based on accessibility in the USA.
         </p>
       </div>
+      <div
+        className='w-[80%]'
+      >
+        <p>
+          Used pictures: <br/>
+          Background picture in share: <Link 
+            to={"https://pl.freepik.com/darmowe-zdjecie/zamknij-sie-na-zielonej-jadeitowej-teksturze_26298722.htm#fromView=search&page=2&position=9&uuid=44f51f7d-b37b-40e8-8542-e2f7a95e2c06"}
+            className='underline ml-[3px] text-violet-200 hover:text-violet-400'
+          >Image author: Gbob on Freepik &gt;&gt; </Link>
+        </p>
+      </div>
     </motion.div>
   )
 }
