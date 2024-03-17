@@ -1,5 +1,7 @@
 ## About The SpotifyStats:
 It is a responsive web app, which allows the user to check their Spotify wrapped. Made with Spotify API.
+
+This website is still in development, because of Spotify Policy if you want to login you have to be added manually as the user by me.
 ## Link to the website:
 Access my site at https://spotify-stats24.web.app/
 ## Table of Content:
@@ -19,6 +21,7 @@ Access my site at https://spotify-stats24.web.app/
 
 <img src="/src/images/screenshots/screen1.png">
 <img src="/src/images/screenshots/screen2.png">
+<img src="/src/images/screenshots/screen3.png">
 
 ## Technologies and tools
 I used:

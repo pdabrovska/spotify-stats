@@ -16,7 +16,7 @@ const ShareScreen = ({close}) => {
 
   return (
     <div
-      className='shareScreen absolute z-[1] top-[30px] bg-zinc-900/95 py-3 px-6'
+      className='shareScreen absolute z-[1] top-[30px] bg-zinc-900/95 py-3 px-6 animate-fadeUp'
     >
       <button
         onClick={close}
@@ -64,7 +64,7 @@ const ShareScreen = ({close}) => {
       <p
         className='text-[12px] bg-transparent w-[60vw] sm:w-[46vw] md:w-[380px] text-justify'
       >
-        To avoid violating Spotify's privacy policy, the option to share this photo directly on social media is disabled. You can still download this image to your device and use it however you want. You may only share the URL of this website using the social media links above.
+        To avoid violating Spotify's privacy policy, the option to share this image directly on social media is disabled. You can still download this image to your device and use it however you want. You may only share the URL of this website using the social media links above.
       </p>
     </div>
   )
