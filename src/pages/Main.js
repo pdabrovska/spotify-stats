@@ -36,7 +36,7 @@ export const Main = ({logout, token}) => {
   }
 
   const share = () => {
-    setIsSharing(!isSharing);
+    setIsSharing(true);
     GenerateShareImg();
   }
 

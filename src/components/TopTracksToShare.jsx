@@ -22,7 +22,7 @@ const TopTracksToShare = ({tracks, artists}) => {
           className='bg-transparent'
         >
           <h1
-            className='bg-transparent text-2xl mb-2'
+            className='bg-transparent text-2xl mb-2 font-semibold'
           >Top Artists:</h1>
           <div
             className='bg-transparent font-bold'
@@ -44,7 +44,7 @@ const TopTracksToShare = ({tracks, artists}) => {
           className='bg-transparent'
         >
           <h1
-            className='bg-transparent text-2xl mb-2'
+            className='bg-transparent text-2xl mb-2 font-semibold'
           >Top Songs:</h1>
           <div
             className='bg-transparent font-bold'
