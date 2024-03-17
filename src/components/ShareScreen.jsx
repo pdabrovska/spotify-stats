@@ -1,6 +1,6 @@
-import React, {useRef, useState, useEffect} from 'react';
+import React, {useRef} from 'react';
 //icons
-import { XMarkIcon, ArrowDownTrayIcon, InformationCircleIcon} from '@heroicons/react/24/solid';
+import { XMarkIcon, ArrowDownTrayIcon} from '@heroicons/react/24/solid';
 import { FacebookMessengerShareButton, WhatsappShareButton, FacebookShareButton } from 'react-share';
 import { FacebookMessengerIcon, FacebookIcon, WhatsappIcon } from 'react-share';
 
@@ -24,7 +24,6 @@ const ShareScreen = ({close}) => {
       >
         <XMarkIcon className='w-[30px] h-[30px] bg-transparent' />
       </button>
-      {/*To do download and sharing functions */}
       <div className='sharing-btns bg-transparent flex items-center flex-wrap gap-1 xxs:gap-3 mb-1 xxs:mb-2'>
         <button
           onClick={download}
