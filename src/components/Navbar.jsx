@@ -29,6 +29,20 @@ export const Navbar = () => {
           </div>
         </Link>
         <Link
+          className='bg-zinc-800/[.06]'
+          to={'/data'}
+          onClick={closeMenu}
+        >
+          <div
+            className='container p-6 bg-transparent relative w-min-[180px] text-center'
+          >
+            <p
+              className='bg-transparent'
+            >Spotify Data Analysis</p>
+            <div className='horizontal-line absolute bottom-[17%] right-[90%] left-[10%] h-[2px] bg-zinc-300 transition-right duration-500 linear'></div>
+          </div>
+        </Link>
+        <Link
           className='bg-transparent'
           to={'/about'}
           onClick={closeMenu}

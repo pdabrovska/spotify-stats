@@ -1,5 +1,6 @@
 ## About The SpotifyStats:
-It is a responsive web app, which allows the user to check their Spotify wrapped. Made with Spotify API.
+It is a responsive web app, which allows the user to check their Spotify wrapped and share/download the result. Made with Spotify API.
+SpotifyStats has the section which showcase the analysis of Spotify user behavior and most streamed songs in 2023 (based on Kaggle datasets). The dashboards were created in Power BI
 
 This website is still in development, because of Spotify Policy if you want to login you have to be added manually as the user by me.
 ## Link to the website:
@@ -22,6 +23,8 @@ Access my site at https://spotify-stats24.web.app/
 <img src="/src/images/screenshots/screen1.png">
 <img src="/src/images/screenshots/screen2.png">
 <img src="/src/images/screenshots/screen3.png">
+<img src="/src/images/screenshots/screen4.png">
+<img src="/src/images/screenshots/screen5.png">
 
 ## Technologies and tools
 I used:
@@ -33,4 +36,5 @@ I used:
     <li>Figma</li>
     <li>Firebase</li>
     <li>GIT</li>
+    <li>Power BI</li>
   </ul>
