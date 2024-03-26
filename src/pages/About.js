@@ -18,9 +18,9 @@ export const About = () => {
       >
         <h1
           className='text-lg font-bold'
-        >What is SpotifyStats?</h1>
+        >What is StatsSpotify?</h1>
         <p>
-          SpotifyStats is a web app designed to offer users an insightful glimpse into their Spotify listening habits whenever they want. The focus is on two key elements - top artists and top songs. The user is also able to check the popularity of the song/artist they listened to.
+          StatsSpotify is a web app designed to offer users an insightful glimpse into their Spotify listening habits whenever they want. The focus is on two key elements - top artists and top songs. The user is also able to check the popularity of the song/artist they listened to.
           &#40;
           <button
             className='underline text-violet-200 hover:text-violet-400'
@@ -33,7 +33,7 @@ export const About = () => {
             more about popularity&gt;&gt;
           </button>
           &#41; <br/><br/>
-          In SpotifyStats the Spotify Web API is used. The official documentation and more about policies of Spotify API:
+          In StatsSpotify the Spotify Web API is used. The official documentation and more about policies of Spotify API:
           <Link 
             to={'https://developer.spotify.com/documentation/web-api'}
             className='underline ml-[3px] text-violet-200 hover:text-violet-400'
