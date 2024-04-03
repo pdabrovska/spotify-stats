@@ -4,7 +4,7 @@ MusicStats has the section which showcase the analysis of Spotify user behavior 
 
 This website is still in development, because of Spotify Policy if you want to login you have to be added manually as the user by me.
 ## Link to the website:
-Access my site at https://your-stats-spotify.web.app/
+Access my site at https://ur-music-stats.web.app/
 ## Table of Content:
 <ul>
   <li>
