@@ -34,21 +34,21 @@ const ShareScreen = ({close}) => {
           />
         </button>
           <FacebookMessengerShareButton
-            url={'https://your-stats-spotify.web.app/'} 
+            url={'https://ur-music-stats.web.app/'} 
           >
             <FacebookMessengerIcon 
               className='rounded-full w-[30px] h-[30px] xxs:w-[40px] xxs:h-[40px]'
             />
           </FacebookMessengerShareButton>
           <FacebookShareButton
-            url={'https://your-stats-spotify.web.app/'} 
+            url={'https://ur-music-stats.web.app/'} 
           >
             <FacebookIcon 
               className='rounded-full w-[30px] h-[30px] xxs:w-[40px] xxs:h-[40px]'
             />
           </FacebookShareButton>
           <WhatsappShareButton
-            url={'https://your-stats-spotify.web.app/'}
+            url={'https://ur-music-stats.web.app/'}
           >
             <WhatsappIcon 
               className='rounded-full w-[30px] h-[30px] xxs:w-[40px] xxs:h-[40px]'
